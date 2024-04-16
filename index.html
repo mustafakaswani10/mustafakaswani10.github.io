@@ -3,45 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Data Science Portfolio</title>
+    <title>Data Science Portfolio</title>
     <style>
-        /* Basic Settings */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-        body, html { width: 100%; height: 100%; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; color: #333; background: #fff; overflow-x: hidden; }
+        /* Basic Styles */
+        body, h1, p, a { margin: 0; padding: 0; font-family: 'Arial', sans-serif; color: #333; }
+        body { background: #fff; overflow-x: hidden; }
 
-        /* Typography */
-        h1, h2, h3 { color: #2c3e50; font-weight: 300; }
-        p { color: #666; font-size: 16px; line-height: 1.6; margin-top: 0.5em; }
+        /* Navigation */
+        nav { background: #fff; height: 50px; width: 100%; position: fixed; top: 0; left: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        nav ul { list-style: none; padding: 0; display: flex; justify-content: center; align-items: center; height: 100%; }
+        nav ul li { padding: 0 20px; }
+        nav ul li a { text-decoration: none; color: #333; font-size: 16px; transition: color 0.3s ease; }
+        nav ul li a:hover { color: #555; }
 
-        /* Container and Sections */
-        .container { max-width: 1200px; margin: auto; padding: 20px; }
-        section { padding: 60px 0; text-align: center; }
+        /* Header */
+        header { height: 100vh; background: url('https://via.placeholder.com/1920x1080/AAA/fff?text=Data+Science+Portfolio') no-repeat center center/cover; display: flex; justify-content: center; align-items: center; text-align: center; }
+        header h1 { font-size: 48px; color: white; }
 
-        /* Header with Full-Screen Background */
-        header { background: url('https://via.placeholder.com/1920x1080/4a148c/ffffff?text=Data+Science'); height: 100vh; display: flex; justify-content: center; align-items: center; color: white; text-align: center; background-size: cover; background-position: center; }
-        header h1 { font-size: 3rem; margin-bottom: 20px; }
-        header p { font-size: 1.5rem; max-width: 640px; margin: auto; }
-
-        /* Stylish Navigation */
-        nav { background: rgba(44, 62, 80, 0.9); padding: 15px 20px; position: fixed; width: 100%; top: 0; z-index: 1000; }
-        nav ul { list-style-type: none; display: flex; justify-content: center; }
-        nav ul li { margin: 0 15px; }
-        nav ul li a { text-decoration: none; color: white; font-size: 18px; transition: color 0.3s; }
-        nav ul li a:hover { color: #1abc9c; }
-
-        /* Cards for Projects */
-        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .card { background: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.1); padding: 20px; border-radius: 10px; transition: transform 0.3s, box-shadow 0.3s; }
-        .card:hover { transform: scale(1.05); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
-
+        /* Main Content */
+        .main { padding-top: 60px; }
+        .project { width: 100%; overflow: hidden; }
+        .project img { width: 100%; transition: transform 0.3s ease; }
+        .project:hover img { transform: scale(1.05); }
+        
         /* Footer */
-        footer { background: #2c3e50; color: white; padding: 20px 0; text-align: center; }
+        footer { text-align: center; padding: 20px 0; font-size: 14px; color: #666; }
 
-        /* Media Queries */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            header { background-attachment: scroll; }
-            .projects-grid { grid-template-columns: 1fr; }
-            nav ul { flex-direction: column; }
+            nav ul li { padding: 0 10px; }
         }
     </style>
 </head>
@@ -53,46 +43,24 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-
     <header>
-        <div>
-            <h1>Welcome to My Data Science Portfolio</h1>
-            <p>Explore my professional journey and innovative projects in Data Science, AI, and ML.</p>
-        </div>
+        <h1>My Data Science Projects</h1>
     </header>
 
-    <section id="about" class="container">
-        <h2>About Me</h2>
-        <p>I am a data scientist with deep expertise in machine learning, artificial intelligence, and advanced data visualization. My work focuses on deriving actionable insights from complex data sets to drive successful business outcomes.</p>
-    </section>
-
-    <section id="projects" class="container">
-        <h2>Projects</h2>
-        <div class="projects-grid">
-            <div class="card">
-                <h3>Visual Data Exploration</h3>
-                <p>An interactive tool that enables users to visually explore complex datasets and uncover hidden patterns.</p>
-            </div>
-            <div class="card">
-                <h3>Machine Learning Deployment</h3>
-                <p>This project involved developing a scalable ML model for predicting customer behavior in real-time.</p>
-            </div>
-            <div class="card">
-                <h3>AI-driven Market Analysis</h3>
-                <p>An AI system that analyzes market trends to provide forecasts and strategic insights to clients.</p>
-            </div>
+    <div class="main">
+        <!-- Project 1 -->
+        <div class="project">
+            <img src="https://via.placeholder.com/1920x1080/EEE/AAA?text=Project+1" alt="Project 1">
         </div>
-    </section>
-
-    <section id="contact" class="container">
-        <h2>Contact Information</h2>
-        <p>Let's connect and explore opportunities together:</p>
-        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile">Visit my LinkedIn</a></p>
-    </section>
+        <!-- Project 2 -->
+        <div class="project">
+            <img src="https://via.placeholder.com/1920x1080/EEE/AAA?text=Project+2" alt="Project 2">
+        </div>
+        <!-- More projects can be added in a similar manner -->
+    </div>
 
     <footer>
-        <p>© 2024 by [Your Name]. All Rights Reserved.</p>
+        © 2024 by [Your Name]. All Rights Reserved.
     </footer>
 </body>
 </html>
