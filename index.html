@@ -3,79 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Advanced Data Science Portfolio</title>
+    <title>My Data Science Portfolio</title>
     <style>
-        /* Resets and Basic Settings */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background: #eeeeee; }
+        /* Basic Settings */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body, html { width: 100%; height: 100%; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; color: #333; background: #fff; overflow-x: hidden; }
 
         /* Typography */
-        h1, h2, h3 { color: #2c3e50; }
-        p { color: #666; font-size: 16px; margin-top: 0.5em; }
-        
-        /* Layout and Grid System */
-        .container { width: 95%; max-width: 1200px; margin: auto; padding: 20px; }
-        .grid { display: grid; grid-gap: 20px; }
-        .grid-two { grid-template-columns: repeat(2, 1fr); }
-        .grid-three { grid-template-columns: repeat(3, 1fr); }
-        .card { background: white; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; transition: transform 0.3s, box-shadow 0.3s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
+        h1, h2, h3 { color: #2c3e50; font-weight: 300; }
+        p { color: #666; font-size: 16px; line-height: 1.6; margin-top: 0.5em; }
 
-        /* Header and Navigation */
-        header { background: #2c3e50; color: white; padding: 40px 20px; text-align: center; }
-        nav { display: flex; justify-content: center; background: #34495e; padding: 10px 0; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; transition: color 0.3s; }
-        nav a:hover { color: #1abc9c; }
+        /* Container and Sections */
+        .container { max-width: 1200px; margin: auto; padding: 20px; }
+        section { padding: 60px 0; text-align: center; }
+
+        /* Header with Full-Screen Background */
+        header { background: url('https://via.placeholder.com/1920x1080/4a148c/ffffff?text=Data+Science'); height: 100vh; display: flex; justify-content: center; align-items: center; color: white; text-align: center; background-size: cover; background-position: center; }
+        header h1 { font-size: 3rem; margin-bottom: 20px; }
+        header p { font-size: 1.5rem; max-width: 640px; margin: auto; }
+
+        /* Stylish Navigation */
+        nav { background: rgba(44, 62, 80, 0.9); padding: 15px 20px; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        nav ul { list-style-type: none; display: flex; justify-content: center; }
+        nav ul li { margin: 0 15px; }
+        nav ul li a { text-decoration: none; color: white; font-size: 18px; transition: color 0.3s; }
+        nav ul li a:hover { color: #1abc9c; }
+
+        /* Cards for Projects */
+        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .card { background: #fff; box-shadow: 0 6px 20px rgba(0,0,0,0.1); padding: 20px; border-radius: 10px; transition: transform 0.3s, box-shadow 0.3s; }
+        .card:hover { transform: scale(1.05); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
 
         /* Footer */
-        footer { background: #2c3e50; color: white; text-align: center; padding: 20px 0; margin-top: 20px; }
+        footer { background: #2c3e50; color: white; padding: 20px 0; text-align: center; }
 
-        /* Animations and Transitions */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-in-up { animation: fadeInUp 0.8s ease-out; }
-
-        /* Media Queries for Responsive Design */
+        /* Media Queries */
         @media (max-width: 768px) {
-            .grid-two, .grid-three { grid-template-columns: 1fr; }
+            header { background-attachment: scroll; }
+            .projects-grid { grid-template-columns: 1fr; }
+            nav ul { flex-direction: column; }
         }
     </style>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <header>
-        <div class="container">
-            <h1>Welcome to My Advanced Data Science Portfolio</h1>
-            <p>Explore cutting-edge projects and innovative solutions.</p>
+        <div>
+            <h1>Welcome to My Data Science Portfolio</h1>
+            <p>Explore my professional journey and innovative projects in Data Science, AI, and ML.</p>
         </div>
     </header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <section id="about" class="container fade-in-up">
+    <section id="about" class="container">
         <h2>About Me</h2>
-        <p>I am a Data Scientist with expertise in machine learning, AI technologies, and advanced data visualization. My approach combines technical excellence with a keen insight into data interpretation and its practical applications.</p>
+        <p>I am a data scientist with deep expertise in machine learning, artificial intelligence, and advanced data visualization. My work focuses on deriving actionable insights from complex data sets to drive successful business outcomes.</p>
     </section>
 
-    <section id="projects" class="container grid grid-two fade-in-up">
-        <div class="card">
-            <h3>Project Title 1</h3>
-            <p>This project involved using advanced machine learning techniques to optimize performance and deliver impactful insights into customer behavior.</p>
-        </div>
-        <div class="card">
-            <h3>Project Title 2</h3>
-            <p>This visualization project was focused on representing complex datasets in an intuitive and accessible way, enhancing decision-making processes.</p>
+    <section id="projects" class="container">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="card">
+                <h3>Visual Data Exploration</h3>
+                <p>An interactive tool that enables users to visually explore complex datasets and uncover hidden patterns.</p>
+            </div>
+            <div class="card">
+                <h3>Machine Learning Deployment</h3>
+                <p>This project involved developing a scalable ML model for predicting customer behavior in real-time.</p>
+            </div>
+            <div class="card">
+                <h3>AI-driven Market Analysis</h3>
+                <p>An AI system that analyzes market trends to provide forecasts and strategic insights to clients.</p>
+            </div>
         </div>
     </section>
 
-    <section id="contact" class="container fade-in-up">
+    <section id="contact" class="container">
         <h2>Contact Information</h2>
-        <p>Feel free to connect with me on professional networks or via email:</p>
+        <p>Let's connect and explore opportunities together:</p>
         <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile">Visit my LinkedIn</a></p>
     </section>
