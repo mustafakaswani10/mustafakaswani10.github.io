@@ -5,62 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Science Portfolio</title>
     <style>
-        /* Basic Styles */
-        body, h1, p, a { margin: 0; padding: 0; font-family: 'Arial', sans-serif; color: #333; }
-        body { background: #fff; overflow-x: hidden; }
+        /* Basic Styling */
+        body, html { padding: 0; margin: 0; font-family: Arial, sans-serif; scroll-behavior: smooth; }
+        a { color: #000; text-decoration: none; }
+        a:hover { text-decoration: underline; }
 
-        /* Navigation */
-        nav { background: #fff; height: 50px; width: 100%; position: fixed; top: 0; left: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        nav ul { list-style: none; padding: 0; display: flex; justify-content: center; align-items: center; height: 100%; }
-        nav ul li { padding: 0 20px; }
-        nav ul li a { text-decoration: none; color: #333; font-size: 16px; transition: color 0.3s ease; }
-        nav ul li a:hover { color: #555; }
+        /* Layout */
+        .sidebar { position: fixed; top: 0; bottom: 0; left: 0; width: 250px; background: #f4f4f4; padding: 20px; }
+        .content { margin-left: 250px; }
+        section { height: 100vh; display: flex; align-items: center; padding: 50px; box-sizing: border-box; }
+        .image { flex: 1; background-size: cover; background-position: center; }
+        .text { flex: 1; padding: 50px; }
 
-        /* Header */
-        header { height: 100vh; background: url('https://via.placeholder.com/1920x1080/AAA/fff?text=Data+Science+Portfolio') no-repeat center center/cover; display: flex; justify-content: center; align-items: center; text-align: center; }
-        header h1 { font-size: 48px; color: white; }
+        /* Navigation Styling */
+        .sidebar a { display: block; padding: 10px 20px; }
+        .active { color: red; }
 
-        /* Main Content */
-        .main { padding-top: 60px; }
-        .project { width: 100%; overflow: hidden; }
-        .project img { width: 100%; transition: transform 0.3s ease; }
-        .project:hover img { transform: scale(1.05); }
-        
-        /* Footer */
-        footer { text-align: center; padding: 20px 0; font-size: 14px; color: #666; }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            nav ul li { padding: 0 10px; }
+            .sidebar { width: 100px; }
+            .content { margin-left: 100px; }
+            .text, .image { flex: 1; }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <header>
-        <h1>My Data Science Projects</h1>
-    </header>
 
-    <div class="main">
-        <!-- Project 1 -->
-        <div class="project">
-            <img src="https://via.placeholder.com/1920x1080/EEE/AAA?text=Project+1" alt="Project 1">
-        </div>
-        <!-- Project 2 -->
-        <div class="project">
-            <img src="https://via.placeholder.com/1920x1080/EEE/AAA?text=Project+2" alt="Project 2">
-        </div>
-        <!-- More projects can be added in a similar manner -->
-    </div>
+<div class="sidebar">
+    <a href="#project1">Project 1</a>
+    <a href="#project2">Project 2</a>
+    <a href="#project3">Project 3</a>
+</div>
 
-    <footer>
-        © 2024 by [Your Name]. All Rights Reserved.
-    </footer>
+<div class="content">
+    <section id="project1" style="background: #ccc;">
+        <div class="image" style="background-image: url('https://via.placeholder.com/600x400');"></div>
+        <div class="text">
+            <h1>Project Title 1</h1>
+            <p>Description of Project 1. Detail the objectives, tools used, and outcomes of the project. This is a great place to explain the value added by this project.</p>
+        </div>
+    </section>
+    <section id="project2" style="background: #bbb;">
+        <div class="text">
+            <h1>Project Title 2</h1>
+            <p>Description of Project 2. This section could focus on a different aspect of data science, such as machine learning or data visualization, explaining the project in detail.</p>
+        </div>
+        <div class="image" style="background-image: url('https://via.placeholder.com/600x400');"></div>
+    </section>
+    <section id="project3" style="background: #aaa;">
+        <div class="image" style="background-image: url('https://via.placeholder.com/600x400');"></div>
+        <div class="text">
+            <h1>Project Title 3</h1>
+            <p>Description of Project 3. Discuss the challenges faced during the project and how they were overcome. Highlight any innovative solutions employed.</p>
+        </div>
+    </section>
+</div>
+
 </body>
 </html>
