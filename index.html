@@ -3,63 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Science Portfolio</title>
+    <title>Mustafa Kaswani - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Basic Styling */
-        body, html { padding: 0; margin: 0; font-family: Arial, sans-serif; scroll-behavior: smooth; }
-        a { color: #000; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #1f2937;
+            --bg-color: #ffffff;
+            --card-bg: #f3f4f6;
+        }
 
-        /* Layout */
-        .sidebar { position: fixed; top: 0; bottom: 0; left: 0; width: 250px; background: #f4f4f4; padding: 20px; }
-        .content { margin-left: 250px; }
-        section { height: 100vh; display: flex; align-items: center; padding: 50px; box-sizing: border-box; }
-        .image { flex: 1; background-size: cover; background-position: center; }
-        .text { flex: 1; padding: 50px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        /* Navigation Styling */
-        .sidebar a { display: block; padding: 10px 20px; }
-        .active { color: red; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
 
-        /* Responsive */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #4b5563;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .projects {
+            padding: 5rem 2rem;
+            background-color: var(--bg-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .project-content p {
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-links a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            color: var(--primary-color);
+        }
+
         @media (max-width: 768px) {
-            .sidebar { width: 100px; }
-            .content { margin-left: 100px; }
-            .text, .image { flex: 1; }
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="navbar-brand">Mustafa Kaswani</div>
+        <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
-<div class="sidebar">
-    <a href="#project1">Project 1</a>
-    <a href="#project2">Project 2</a>
-    <a href="#project3">Project 3</a>
-</div>
-
-<div class="content">
-    <section id="project1" style="background: #ccc;">
-        <div class="image" style="background-image: url('https://via.placeholder.com/600x400');"></div>
-        <div class="text">
-            <h1>Project Title 1</h1>
-            <p>Description of Project 1. Detail the objectives, tools used, and outcomes of the project. This is a great place to explain the value added by this project.</p>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>I'm a passionate developer creating innovative solutions through code.</p>
         </div>
     </section>
-    <section id="project2" style="background: #bbb;">
-        <div class="text">
-            <h1>Project Title 2</h1>
-            <p>Description of Project 2. This section could focus on a different aspect of data science, such as machine learning or data visualization, explaining the project in detail.</p>
-        </div>
-        <div class="image" style="background-image: url('https://via.placeholder.com/600x400');"></div>
-    </section>
-    <section id="project3" style="background: #aaa;">
-        <div class="image" style="background-image: url('https://via.placeholder.com/600x400');"></div>
-        <div class="text">
-            <h1>Project Title 3</h1>
-            <p>Description of Project 3. Discuss the challenges faced during the project and how they were overcome. Highlight any innovative solutions employed.</p>
-        </div>
-    </section>
-</div>
 
+    <section id="projects" class="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://via.placeholder.com/400x200" alt="Project 1" class="project-image">
+                <div class="project-content">
+                    <h3>Project One</h3>
+                    <p>A brief description of your first project. Explain what technologies you used and what problems it solves.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">View Demo</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://via.placeholder.com/400x200" alt="Project 2" class="project-image">
+                <div class="project-content">
+                    <h3>Project Two</h3>
+                    <p>Description of your second project. Highlight the key features and your role in development.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">View Demo</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://via.placeholder.com/400x200" alt="Project 3" class="project-image">
+                <div class="project-content">
+                    <h3>Project Three</h3>
+                    <p>Details about your third project. Discuss the challenges you faced and how you overcame them.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank">View Demo</a>
+                        <a href="#" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <p>Feel free to reach out to me through any of these platforms:</p>
+        <div class="contact-links">
+            <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
 </body>
 </html>
