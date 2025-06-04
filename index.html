@@ -6,346 +6,255 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mustafa Kaswani - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #635bff;
-            --secondary-color: #0a2540;
-            --text-color: #425466;
-            --bg-color: #ffffff;
-            --card-bg: #f6f9fc;
-            --gradient-start: #635bff;
-            --gradient-end: #00d4ff;
+            --primary: #111827;
+            --accent: #6366f1;
+            --bg: #f9fafb;
+            --card-bg: #fff;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --border: #e5e7eb;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        html, body {
+            height: 100%;
         }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            min-height: 100vh;
         }
-
         .navbar {
-            position: fixed;
-            top: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.98);
-            padding: 1.5rem 2rem;
-            box-shadow: 0 1px 0 rgba(0,0,0,0.1);
-            z-index: 1000;
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(10px);
+            justify-content: space-between;
+            padding: 1.25rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
-
-        .navbar-brand {
-            font-size: 1.5rem;
+        .navbar-logo {
             font-weight: 700;
-            color: var(--secondary-color);
-            text-decoration: none;
+            font-size: 1.3rem;
+            color: var(--primary);
+            letter-spacing: -1px;
         }
-
-        .nav-links {
+        .navbar-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
         }
-
-        .nav-links a {
-            color: var(--text-color);
+        .navbar-links a {
+            color: var(--muted);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            transition: color 0.2s;
         }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
+        .navbar-links a:hover {
+            color: var(--accent);
         }
-
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            max-width: 900px;
+            margin: 4rem auto 0 auto;
             text-align: center;
-            padding: 0 2rem;
-            background: linear-gradient(135deg, #f6f9fc 0%, #eef2f7 100%);
-            position: relative;
-            overflow: hidden;
+            padding: 0 1rem;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(99,91,255,0.1) 0%, rgba(0,212,255,0.1) 100%);
-            animation: rotate 30s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            color: var(--secondary-color);
-            line-height: 1.2;
+        .hero-title {
+            font-size: 2.8rem;
             font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+            letter-spacing: -2px;
         }
-
-        .hero-content p {
+        .hero-desc {
             font-size: 1.25rem;
-            color: var(--text-color);
-            max-width: 600px;
-            margin: 0 auto 2rem;
+            color: var(--muted);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
         }
-
-        .cta-button {
+        .hero-cta {
             display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: white;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.9rem 2.2rem;
+            border-radius: 12px;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 8px rgba(99,102,241,0.08);
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
         }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(99,91,255,0.2);
+        .hero-cta:hover {
+            background: #4f46e5;
+            box-shadow: 0 4px 16px rgba(99,102,241,0.13);
+            transform: translateY(-2px) scale(1.03);
         }
-
-        .projects {
-            padding: 8rem 2rem;
-            background-color: var(--bg-color);
+        .projects-section {
+            max-width: 1200px;
+            margin: 4rem auto 0 auto;
+            padding: 0 1rem 4rem 1rem;
         }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-            color: var(--secondary-color);
-            font-size: 2.5rem;
+        .projects-title {
+            font-size: 2rem;
             font-weight: 700;
+            margin-bottom: 2.5rem;
+            color: var(--primary);
+            text-align: left;
         }
-
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
         }
-
         .project-card {
             background: var(--card-bg);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(31,41,55,0.06);
+            border: 1px solid var(--border);
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: box-shadow 0.2s, transform 0.2s;
         }
-
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 32px rgba(99,102,241,0.13);
+            transform: translateY(-4px) scale(1.02);
         }
-
         .project-image {
             width: 100%;
-            height: 240px;
+            height: 180px;
             object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1.2rem;
+            background: #e5e7eb;
         }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-content h3 {
-            margin-bottom: 1rem;
-            color: var(--secondary-color);
-            font-size: 1.5rem;
+        .project-title {
+            font-size: 1.25rem;
             font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
-
-        .project-content p {
-            color: var(--text-color);
-            margin-bottom: 1.5rem;
+        .project-desc {
+            color: var(--muted);
             font-size: 1rem;
+            margin-bottom: 1.2rem;
         }
-
         .project-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
         }
-
         .project-links a {
-            color: var(--primary-color);
-            text-decoration: none;
+            color: var(--accent);
             font-weight: 500;
+            text-decoration: none;
+            font-size: 1rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
+            transition: color 0.2s;
         }
-
         .project-links a:hover {
-            text-decoration: underline;
+            color: #4f46e5;
         }
-
-        .contact {
-            padding: 8rem 2rem;
-            background: linear-gradient(135deg, #f6f9fc 0%, #eef2f7 100%);
+        .contact-section {
+            max-width: 700px;
+            margin: 4rem auto 2rem auto;
+            background: var(--card-bg);
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(31,41,55,0.06);
+            border: 1px solid var(--border);
+            padding: 2.5rem 2rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(99,91,255,0.1) 0%, rgba(0,212,255,0.1) 100%);
-            animation: rotate 30s linear infinite reverse;
+        .contact-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
-
-        .contact-content {
-            position: relative;
-            z-index: 1;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
         .contact-links {
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
-
         .contact-links a {
-            color: var(--secondary-color);
+            color: var(--muted);
             font-size: 1.5rem;
-            transition: color 0.3s ease, transform 0.3s ease;
+            transition: color 0.2s, transform 0.2s;
         }
-
         .contact-links a:hover {
-            color: var(--primary-color);
-            transform: translateY(-2px);
+            color: var(--accent);
+            transform: scale(1.15);
         }
-
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 1rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2rem; }
+            .projects-title { font-size: 1.3rem; }
+            .contact-title { font-size: 1.1rem; }
+            .navbar { padding: 1rem 0.7rem; }
+            .projects-section { padding-bottom: 2rem; }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <a href="#" class="navbar-brand">Mustafa Kaswani</a>
-        <div class="nav-links">
+        <div class="navbar-logo">Mustafa Kaswani</div>
+        <div class="navbar-links">
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
-
     <section class="hero">
-        <div class="hero-content">
-            <h1>Building Digital Experiences</h1>
-            <p>I'm a passionate developer creating innovative solutions through code. Let's build something amazing together.</p>
-            <a href="#projects" class="cta-button">View My Work</a>
-        </div>
+        <h1 class="hero-title">Discover My Work</h1>
+        <p class="hero-desc">I design and build digital products with a focus on clean UI, delightful UX, and modern web technologies. Explore my featured projects below.</p>
+        <a href="#projects" class="hero-cta">See Projects</a>
     </section>
-
-    <section id="projects" class="projects">
-        <h2 class="section-title">Featured Projects</h2>
+    <section id="projects" class="projects-section">
+        <div class="projects-title">Featured Projects</div>
         <div class="projects-grid">
             <div class="project-card">
-                <img src="https://via.placeholder.com/400x240" alt="Project 1" class="project-image">
-                <div class="project-content">
-                    <h3>Project One</h3>
-                    <p>A brief description of your first project. Explain what technologies you used and what problems it solves.</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> View Demo</a>
-                        <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
+                <img src="https://via.placeholder.com/400x180" alt="Project 1" class="project-image">
+                <div class="project-title">Project One</div>
+                <div class="project-desc">A brief description of your first project. Explain what technologies you used and what problems it solves.</div>
+                <div class="project-links">
+                    <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                 </div>
             </div>
-
             <div class="project-card">
-                <img src="https://via.placeholder.com/400x240" alt="Project 2" class="project-image">
-                <div class="project-content">
-                    <h3>Project Two</h3>
-                    <p>Description of your second project. Highlight the key features and your role in development.</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> View Demo</a>
-                        <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
+                <img src="https://via.placeholder.com/400x180" alt="Project 2" class="project-image">
+                <div class="project-title">Project Two</div>
+                <div class="project-desc">Description of your second project. Highlight the key features and your role in development.</div>
+                <div class="project-links">
+                    <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                 </div>
             </div>
-
             <div class="project-card">
-                <img src="https://via.placeholder.com/400x240" alt="Project 3" class="project-image">
-                <div class="project-content">
-                    <h3>Project Three</h3>
-                    <p>Details about your third project. Discuss the challenges you faced and how you overcame them.</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> View Demo</a>
-                        <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
+                <img src="https://via.placeholder.com/400x180" alt="Project 3" class="project-image">
+                <div class="project-title">Project Three</div>
+                <div class="project-desc">Details about your third project. Discuss the challenges you faced and how you overcame them.</div>
+                <div class="project-links">
+                    <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                 </div>
             </div>
         </div>
     </section>
-
-    <section id="contact" class="contact">
-        <div class="contact-content">
-            <h2 class="section-title">Get in Touch</h2>
-            <p>Feel free to reach out to me through any of these platforms:</p>
-            <div class="contact-links">
-                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
-            </div>
+    <section id="contact" class="contact-section">
+        <div class="contact-title">Get in Touch</div>
+        <div>Feel free to reach out to me through any of these platforms:</div>
+        <div class="contact-links">
+            <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
         </div>
     </section>
 </body>
